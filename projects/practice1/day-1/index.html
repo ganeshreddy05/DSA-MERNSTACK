@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form & LocalStorage Example</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    form { max-width: 400px; margin-bottom: 20px; }
+    input { width: 100%; padding: 8px; margin: 8px 0; }
+    button { padding: 8px 15px; }
+    .user-data { margin-top: 20px; }
+    li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+
+  <h2>Signup Form</h2>
+  <form id="signupForm">
+    <input type="text" id="name" placeholder="Enter your name" required>
+    <input type="email" id="email" placeholder="Enter your email" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="user-data">
+    <h3>Saved Users:</h3>
+    <ul id="userList"></ul>
+  </div>
+
+  <script>
+    // Select form and elements
+    const form = document.getElementById('signupForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const userList = document.getElementById('userList');
+
+    // Load existing users from localStorage
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    displayUsers();
+
+    // Form submit event
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // prevent page refresh
+
+      // Create new user object
+      const user = {
+        name: nameInput.value,
+        email: emailInput.value
+      };
+
+      // Add user to array
+      users.push(user);
+
+      // Save to localStorage
+      localStorage.setItem('users', JSON.stringify(users));
+
+      // Display on page
+      displayUsers();
+
+      // Clear inputs
+      form.reset();
+    });
+
+    // Function to display users
+    function displayUsers() {
+      userList.innerHTML = '';
+      users.forEach((user, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${user.name} - ${user.email}`;
+        userList.appendChild(li);
+      });
+    }
+  </script>
+
+</body>
+</html>

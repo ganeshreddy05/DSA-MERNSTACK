@@ -25,16 +25,21 @@
         // console.log(hOne.hasAttribute("class"))
         // hOne.removeAttribute("class");
         // console.log(hOne.hasAttribute("class"))
-        const image = document.getElementById("image");
-        image.setAttribute("src","https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?cs=srgb&dl=landscape-sky-clouds-259588.jpg&fm=jpg");
-        image.setAttribute("height","200px");
-        image.setAttribute("width","400px");
-        image.setAttribute("alt", "check the url mistake");
+        // const image = document.getElementById("image");
+        // image.setAttribute("src","https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?cs=srgb&dl=landscape-sky-clouds-259588.jpg&fm=jpg");
+        // image.setAttribute("height","200px");
+        // image.setAttribute("width","400px");
+        // image.setAttribute("alt", "check the url mistake");
 
-        hOne.classList.add("hOne");
-         hOne.classList.remove("hOne");
-         hOne.classList.toggle("hOne");
-         console.log(hOne.classList.contains("hOne"));
+        // hOne.classList.add("hOne");
+        //  hOne.classList.remove("hOne");
+        //  hOne.classList.toggle("hOne");
+        //  console.log(hOne.classList.contains("hOne"));
+
+        localStorage.setItem("user", JSON.stringify([{name: "Ganesh", age: 20},{name:"sathwik", age:23}]));
+ JSON.parse(localStorage.getItem("user"));//parse is used to convert object to strings 
+ localStorage.removeItem("user");//used to remove data from localstorage
+
         
         
     </script>

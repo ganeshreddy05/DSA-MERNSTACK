@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p id = "countnumber"></p>
+        <button id = "increment">+</button>
+        <button id = "decrement">-</button>
+    </div>
+    <script>
+        const countnumber = document.getElementById("countnumber");
+        const increment = document.getElementById("increment");
+        const decrement = document.getElementById("decrement");
+
+        let count=0;
+
+        increment.addEventListener("click", () =>{
+            count++;
+            countnumber.textContent=String(count);
+
+        });
+        decrement.addEventListener("click", () =>{
+            if(count==0){
+                return;
+            }
+            count--;
+            countnumber.textContent=String(count);
+        });
+        
+    </script>
+    
+</body>
+</html>
