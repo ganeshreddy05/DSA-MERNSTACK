@@ -1,0 +1,16 @@
+package mathematics;
+
+public class trailingzeroes {
+    public int trailingZeroes(int n) {
+        int count = 0;
+
+        for(int i=5;i<=n;i=i*5){
+            count=count+(n/i); 
+            if(i>n){
+                break;
+            }
+        }
+      
+        return count;
+    }
+}
